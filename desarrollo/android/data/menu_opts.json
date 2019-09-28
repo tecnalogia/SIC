@@ -5,20 +5,20 @@
             "ruta" : "alert",
             "icon" : "add_alert",
             "titulo": "Aviso 1",
-            "subtitulo": "Descripcion aviso 1"
+            "subtitulo": "Descripcion1"
 
         },
         {
             "ruta" : "avatar",
             "icon" : "accessibility",
             "titulo": "Aviso 2",
-            "subtitulo":"Descripcion aviso 2"
+            "subtitulo":"Descripcion 2"
         },
         {
             "ruta" : "card",
             "icon" : "folder_open",
             "titulo": "Aviso 3",
-            "subtitulo":"Descripcion aviso 3"
+            "subtitulo":"Descripcion  3"
         }
     ]
 }
