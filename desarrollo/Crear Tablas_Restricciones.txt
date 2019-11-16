@@ -1,0 +1,218 @@
+
+
+
+use DIGITAL_COPIER
+-----------------------------------------------------CREARTABLAS----------------------------------------------------------------
+
+--TABLA PROVEEDOR
+create table Proveedores
+(
+Id_proveedor int identity(1,1) primary key not null,
+Nombre_empresa varchar(15)not null,
+Nombre_contacto Varchar(20)Not null,
+direccion Varchar(70),
+telefono Varchar(11)Not null,
+Celular_contacto Varchar(9)
+)
+
+create table Detalle_compra
+(
+Id_proveedor  int not null,
+Id_producto int not null,
+fecha date not null,
+precio_unidad money not null,
+cantidad int not null
+)
+
+create table Producto
+(
+Id_producto int identity(1,1) primary key not null,
+Id_categoria int not null,
+Nombre_producto Varchar(30) not null,
+ Numero_serie Varchar(40),
+ descripcion varchar(35),
+ Unidades_en_existencia int,
+ Precio_compra money not null,
+ Precio_venta money not null
+)
+
+create table Categoria
+(
+Id_categoria int identity(1,1) primary key not null,
+Nombre_categoria Varchar(25) not null,--
+descripcion Varchar(70)
+)
+
+create table pedido
+(
+ Id_pedido int identity(1,1) primary key not null,
+ Id_cotizacion int , 
+ Id_tipo_comprobante int not null,
+Id_cliente int not null,
+Id_vendedor int not null,
+Fecha_pedido date not null,
+Fecha_envio date not null,
+Fecha_entrega Date  Not null
+)
+
+create table Detalle_de_pedido
+(
+Id_pedido  int not null,
+Id_producto int Not null,
+Precio_unidad money Not null,
+cantidad int Not null,
+Id_proveedor int not null
+)
+
+create table Vendedor
+(
+Id_vendedor int identity(1,1) primary key not null,
+nombres Varchar(20) Not null,
+Apellido_paterno Varchar(15) Not null,
+Apellido_materno Varchar(15) Not null,
+Fecha_nacimiento date Not null,
+direccion Varchar(70) not null,
+distrito varchar(20)not null,
+telefono Varchar(13) Not null, 
+tipo_documento varchar (3)not null,
+nro_documento varchar(8)not null,
+observacion  Varchar(150)
+)
+
+create table Cliente
+(
+Id_cliente int identity(1,1) primary key not null,
+Id_tipo_cliente int not null,
+nombres Varchar(20)  Not null,
+Apellido_paterno Varchar(15) Not null,
+Apellido_materno Varchar(15) Not null,
+telefono Varchar(13),
+Email varchar (30),
+Tipo_documento varchar (3),
+nro_documento varchar(11)
+)
+
+create table Tipo_cliente
+(
+Id_tipo_cliente int identity(1,1) primary key not null,
+Tipo_cliente Varchar(7) Not null,
+)
+
+create table Tipo_comprobante
+(
+Id_tipo_comprobante int identity(1,1) primary key not null,
+comprobante Varchar(7) Not null,
+
+)
+
+
+create table cotizacion
+(
+Id_cotizacion int identity(1,1) primary key not null,
+Id_vendedor int Not null,	
+Id_cliente int Not null,	
+fecha date Not null 
+)
+
+create table Cotizacion_detalle
+(
+ Id_cotizacion int  not null, 
+ Id_producto int Not null,
+ Precio_unidad money Not null,
+cantidad int Not null,
+Id_proveedor int not null
+)
+
+
+
+--relacion Detalle_compra-Proveedores
+alter table [dbo].[Detalle_compra]
+add constraint fk_Detalle_compra_Proveedor
+foreign key (Id_proveedor) references Proveedores(Id_proveedor)
+
+--relacion Detalle_compra-Producto
+alter table [dbo].[Detalle_compra]
+add constraint fk_Detalle_compra_Producto
+foreign key (Id_producto) references Producto(Id_producto)
+
+--relacion producto-categoria
+
+alter table [dbo].[Producto]
+add constraint fk_producto_categoria
+foreign key (Id_categoria) references Categoria(Id_categoria)
+
+--relacion detalle de pedido--producto
+
+alter table [dbo].[Detalle_de_pedido]
+add constraint fk_DetalleDePedido_Producto
+foreign key (Id_producto) references Producto(Id_producto)
+
+--relacion detalle de pedido--pedido
+
+alter table [dbo].[Detalle_de_pedido]
+add constraint fk_DetalleDePedido_Pedido
+foreign key (Id_pedido) references pedido(Id_pedido)
+
+--relacion detalle de pedido--proveedor
+
+alter table [dbo].[Detalle_de_pedido]
+add constraint fk_DetalleDePedido_Proveedor
+foreign key (Id_proveedor) references Proveedores(Id_proveedor)
+
+
+--relacion  pedido--vendedor
+
+alter table [dbo].[pedido]
+add constraint fk_Pedido_Vendedor
+foreign key (Id_vendedor) references Vendedor(Id_vendedor)
+
+--relacion cliente-tipo_cliente
+
+alter table [dbo].[Cliente]
+add constraint fk_Cliente_TipoCliente
+foreign key (Id_tipo_cliente) references Tipo_cliente(Id_tipo_cliente)
+
+--relacion pedido--tipo_comprobante
+alter table [dbo].[pedido]
+add constraint fk_Pedido_TipoComprobante
+foreign key (Id_tipo_comprobante) references Tipo_comprobante(Id_tipo_comprobante)
+
+--relacion cotizacion_detalle--cotizacion
+alter table [dbo].[Cotizacion_detalle]
+add constraint fk_CotizacionDetalle_Cotizacion
+foreign key (Id_cotizacion) references cotizacion(Id_cotizacion)
+
+
+--relacion cotizacion_detalle--producto
+alter table [dbo].[Cotizacion_detalle]
+add constraint fk_CotizacionDetalle_Producto
+foreign key (Id_producto) references Producto(Id_producto)
+
+--relacion cotizacion_detalle--proveedor
+alter table [dbo].[Cotizacion_detalle]
+add constraint fk_CotizacionDetalle_Proveedor
+foreign key (Id_proveedor) references Proveedores(Id_proveedor)
+
+--relacion pedido-cotizacion
+alter table [dbo].[pedido]
+add constraint fk_Pedido_Cotizacion
+foreign key (Id_cotizacion) references cotizacion(Id_cotizacion)
+
+--relacion pedido--cliente
+alter table [dbo].[pedido]
+add constraint fk_Pedido_Cliente
+foreign key (Id_cliente) references cliente(Id_cliente)
+
+
+
+
+
+--relacion cotizacion--cliente
+alter table [dbo].[Cotizacion] 
+add constraint  fk_Cotizacion_Cliente
+foreign key (Id_cliente) references cliente(Id_cliente)
+
+--relacion cotizacion--vendedor
+alter table [dbo].[Cotizacion]
+add constraint  fk_Cotizacion_vendedor
+foreign key (Id_vendedor) references Vendedor(Id_vendedor)
