@@ -1,4 +1,4 @@
-name: Jekyll site CI
+name: Sistema integral de comercio (SIC) Pruebas CI
 
 on: [push]
 
