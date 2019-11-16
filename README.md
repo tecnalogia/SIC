@@ -1,2 +1,2 @@
-# Sistema Integral para el comercio electronico (SICE)
-Sistema Integral para el comercio electronico
+# Sistema Integral para el comercio (SIC)
+Sistema Integral para el comercio 
