@@ -1,0 +1,251 @@
+---datos a proveedores---
+
+insert into proveedores(nombre_empresa,nombre_contacto,direccion,telefono,celular_contacto) values('corsac','Juan Hernandez','AV. 5 DE MAYO NO. 1652','7765473','938533453');
+insert into proveedores(nombre_empresa,nombre_contacto,direccion,telefono,celular_contacto) values('la feria','Jose  Peralta','AV. 20 DE NOVIEMBRE NO 1540','3219684','938765453');
+insert into proveedores(nombre_empresa,nombre_contacto,direccion,telefono,celular_contacto) values('start','Smit Vilchez','CALLE IGNACIO RAYON NO.934','3326105','938518553');
+insert into proveedores(nombre_empresa,nombre_contacto,direccion,telefono,celular_contacto) values('konitec','Johana Caceres','AV. INDEPENDENCIA S/N EXT. DEL MERCADO','5871894','917433453');
+insert into proveedores(nombre_empresa,nombre_contacto,direccion,telefono,celular_contacto) values('km','Stiven Cruz','CALLE IGNACIO MATIAS NO.6','7417683','938537654');
+insert into proveedores(nombre_empresa,nombre_contacto,direccion,telefono,celular_contacto) values('minoltatec','Jhonatan Medina','20 DE NOVIEMBRE NO. 955','5963472','938387653');
+insert into proveedores(nombre_empresa,nombre_contacto,direccion,telefono,celular_contacto) values('cora','Carlos Muñoz','CAMINO LOMA ALTA NO. 1000','7509261','998763453');
+insert into proveedores(nombre_empresa,nombre_contacto,direccion,telefono,celular_contacto) values('copymax','Dora Castro','CALLE MORELOS NO. 44','3055050','938873453');
+insert into proveedores(nombre_empresa,nombre_contacto,direccion,telefono,celular_contacto) values('alemsa','Esteban Zevallos','AV DANIEL SOTO 738','2600839','933573453');
+insert into proveedores(nombre_empresa,nombre_contacto,direccion,telefono,celular_contacto) values('minolperu','Alondra Bermudez','BOULEVAR BENITO JUAREZ NO. 197 -A','3146628','936533453');
+
+---datos a vendedor ---
+
+
+ insert into [dbo].[Vendedor]([nombres],[Apellido_paterno],[Apellido_materno],[Fecha_nacimiento],[direccion],[distrito],[telefono],[tipo_documento],[nro_documento],[observacion])
+ values('JOSE ANTONIO','GUARDAMINO','IZQUIERDO','08-06-1965','Jr. Cantuta Nro. 155','Independencia','(01) 525-7787','DNI','7163658','');
+-----tipo cliente---
+SET IDENTITY_INSERT [dbo].[Tipo_cliente] ON 
+
+INSERT [dbo].[Tipo_cliente] ([Id_tipo_cliente], [Tipo_cliente]) VALUES (1, N'tecnico')
+INSERT [dbo].[Tipo_cliente] ([Id_tipo_cliente], [Tipo_cliente]) VALUES (2, N'directo')
+SET IDENTITY_INSERT [dbo].[Tipo_cliente] OFF
+
+
+ ---datos a cliente ---
+SET IDENTITY_INSERT [dbo].[Cliente] ON 
+ insert into cliente(Id_cliente,Id_tipo_cliente,nombres,apellido_paterno,apellido_materno,telefono,email,tipo_documento,nro_documento) values(1,2,'Juan Carlos','Vilchez','Quispe','988789556','jcarlos@outlook.com','DNI','48954215');
+insert into cliente(Id_cliente,Id_tipo_cliente,nombres,apellido_paterno,apellido_materno,telefono,email,tipo_documento,nro_documento) values(2,2,'Freddy Luis','Solano','Diaz','954207485','freddy.solano@gmail.com','DNI','20752456');
+insert into cliente(Id_cliente,Id_tipo_cliente,nombres,apellido_paterno,apellido_materno,telefono,email,tipo_documento,nro_documento) values(3,2,'Jesus','Alcantara','Quispe','997852466','jesusalcantara@gmail.com','DNI','75218453');
+insert into cliente(Id_cliente,Id_tipo_cliente,nombres,apellido_paterno,apellido_materno,telefono,email,tipo_documento,nro_documento) values(4,1,'Patricia Antonella','Maguiña','Aguirre','(01)4684562','patriciaguirre@hotmail.com','RUC','20486284625');
+insert into cliente(Id_cliente,Id_tipo_cliente,nombres,apellido_paterno,apellido_materno,telefono,email,tipo_documento,nro_documento) values(5,2,'Omar Hairo','Velasquez','Huaman','985464512','ohairo@hotmail.com','DNI','23210174');
+insert into cliente(Id_cliente,Id_tipo_cliente,nombres,apellido_paterno,apellido_materno,telefono,email,tipo_documento,nro_documento) values(6,2,'Fabricio Oswaldo','Cajusol','Ramos','924875410','foswaldo@hotmail.com','DNI','78321211');
+insert into cliente(Id_cliente,Id_tipo_cliente,nombres,apellido_paterno,apellido_materno,telefono,email,tipo_documento,nro_documento) values(7,1,'Jhon Karl','Arevalo','Olivares','(054)4285691','jkarl@hotmail.com','RUC','20879655465');
+insert into cliente(Id_cliente,Id_tipo_cliente,nombres,apellido_paterno,apellido_materno,telefono,email,tipo_documento,nro_documento) values(8,1,'Harold Estefano','Garcia','Acosta','(01)6929271','hestefano@hotmail.com','RUC','20475214875');
+insert into cliente(Id_cliente,Id_tipo_cliente,nombres,apellido_paterno,apellido_materno,telefono,email,tipo_documento,nro_documento) values(9,2,'Wendy Vanessa','Paredes','Espinoza','975244621','vanegarcia@gmail.com','DNI','62417782');
+insert into cliente(Id_cliente,Id_tipo_cliente,nombres,apellido_paterno,apellido_materno,telefono,email,tipo_documento,nro_documento) values(10,2,'Carol Fiorella','Gamboa','Rivadeneira','967125470','cfiorella@hotmail.com','DNI','75821404');
+SET IDENTITY_INSERT [dbo].[Cliente]  OFF
+---DBCC CHECKIDENT (Cliente, RESEED,0)
+
+---tabla categoria----
+SET IDENTITY_INSERT [dbo].[Categoria] ON
+INSERT [dbo].[Categoria] ([Id_categoria], [Nombre_categoria], [descripcion]) VALUES (1, 'insumos', 'toner,chip,piño')
+INSERT [dbo].[Categoria] ([Id_categoria], [Nombre_categoria], [descripcion]) VALUES (2, 'maquinas', 'fotocopiadoras ')
+INSERT [dbo].[Categoria] ([Id_categoria], [Nombre_categoria], [descripcion]) VALUES (3, 'repuestos', NULL)
+SET IDENTITY_INSERT [dbo].[Categoria] OFF
+
+
+ --datos a producto--
+ SET IDENTITY_INSERT [dbo].[Producto] ON 
+
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (1, 1, N'cilindro', N'BZ 350/282/362   DI ',' ', 5, 100.0000, 120.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (2, 1, N'cilindro', N'BZ 223/283/363/423',' ', 10, 170.0000, 180.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (3, 1, N'cilindro', N'BZ 224/284/364  BZC ',' ', 15, 160.0000, 180.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (4, 1, N'cilindro', N'BZ 454E/554E',' ', 20, 150.0000, 180.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (5, 1, N'cilindro', N'BZ 654E/754E',' ', 15, 220.0000, 240.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (6, 1, N'cilindro', N'BZ 552/652',' ', 16, 230.0000, 240.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (7, 1, N'cilindro', N'BZC 253/353',' ', 11, 150.0000, 160.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (8, 1, N'cuchillas de limpieza', N'BZ 350/282/362 /283/',' ', 17, 55.0000, 60.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (9, 1, N'cuchillas de limpieza', N'BZ 224/284/364/454/5',' ', 18, 55.0000, 60.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (10, 1, N'cuchillas de limpieza', N'BZ 287/367',' ', 19, 55.0000, 60.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (11, 1, N'cuchillas de limpieza', N'BZ 552/652/654E/754E',' ', 12, 55.0000, 60.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (12, 1, N'revelador', N'BZ 250/350/282/362',' ', 15, 110.0000, 120.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (13, 1, N'revelador', N'BZ 283/363/423',' ', 12, 150.0000, 180.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (14, 1, N'revelador', N'BZ 284/364          ',' ', 5, 250.0000, 260.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (15, 1, N'revelador', N'BZ 454/554E         ',' ', 4, 230.0000, 260.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (16, 1, N'revelador', N'BZ 552/652',' ', 3, 260.0000, 290.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (17, 1, N'rodillo de calor', N'BZ 350/282/362/283/3',' ', 7, 110.0000, 120.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (18, 1, N'rodillo de calor', N'BZ 451/552/652',' ', 6, 100.0000, 120.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (19, 1, N'rodillo de presión', N'BZ 224/364   BZC 280',' ', 12, 140.0000, 160.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (20, 1, N'rodillo de presión', N'BZ 454           BZC',' ', 30, 159.0000, 180.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (21, 1, N'rodillo de presión', N'BZ 554/654          ',' ', 15, 199.0000, 210.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (22, 1, N'rodillo de presión', N'BZ 552/652',' ', 20, 200.0000, 210.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (23, 1, N'banda de fusión', N'BZ 224/284/364/454/5',' ', 30, 270.0000, 280.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (24, 1, N'banda de fusión', N'BZ 452/552/652/654/7',' ', 15, 250.0000, 280.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (25, 1, N'banda de transparencia', N'BZ 224/284/364      ',' ', 30, 340.0000, 360.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (26, 1, N'banda de transparencia', N'BZ 454/554E         ',' ', 15, 340.0000, 360.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (27, 1, N'banda de transparencia', N'BZ 552/652/654/754  ',' ', 10, 340.0000, 360.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (28, 1, N'unidades de tambor', N'BZ 223/283/363/423',' ', 10, 300.0000, 320.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (29, 1, N'unidades de tambor', N'BZ 224/284/364E     ',' ', 9, 300.0000, 320.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (30, 1, N'unidades de tambor', N'BZ 454/554E',' ', 8, 430.0000, 480.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (31, 1, N'unidades de tambor', N'BZ 367',' ', 7, 400.0000, 420.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (32, 1, N'unidades de revelado', N'BZ 223/283/363/423',' ', 9, 355.0000, 360.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (33, 1, N'unidades de revelado', N'BZ 224/284/364E',' ', 8, 365.0000, 380.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (34, 1, N'unidades de revelado', N'BZ 454/554E',' ', 5, 505.0000, 550.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (35, 1, N'uñas de fusión', N'BZ 350/282/362/283/3',' ', 7, 25.0000, 30.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (36, 1, N'piñones', N'BZ 223/283/363/423  ',' ', 9, 25.0000, 30.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (37, 1, N'piñones', N'BZ 552/652          ',' ', 12, 35.0000, 45.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (38, 1, N'piñones', N'BZ 552/652/654      ',' ', 11, 35.0000, 40.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (39, 1, N'ruedas de casset', N'BZ 223/283/363/423/4',' ', 12, 45.0000, 60.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (40, 1, N'ruedas de casset', N'BZ 454/554/654/754  ',' ', 12, 54.0000, 60.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (41, 1, N'clutch', N'BZ 223/283/363/423  ',' ', 12, 120.0000, 140.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (42, 1, N'clutch', N'BZ 223/283/363/423  ',' ', 15, 160.0000, 180.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (43, 1, N'clutch', N'BZ 454/554       DE ',' ', 14, 160.0000, 180.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (44, 1, N'collar', N'BZ 223/283/363/423',' ', 12, 110.0000, 120.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (45, 1, N'tóner', N'BZ 350/282/362   NEG',' ', 30, 55.0000, 60.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (46, 1, N'tóner', N'BZ 283/363/423   NEG',' ', 21, 111.0000, 120.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (47, 1, N'tóner', N'BZ 284/364E         ',' ', 71, 145.0000, 160.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (48, 1, N'tóner', N'BZ 454/554E         ',' ', 11, 170.0000, 180.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (49, 1, N'tóner', N'BZ 552/652          ',' ', 11, 195.0000, 210.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (50, 1, N'tóner', N'BZ 654/754E         ',' ', 12, 195.0000, 210.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (51, 1, N'tóner', N'BZC 253/353         ',' ', 11, 110.0000, 130.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (52, 1, N'tóner', N'BZC 253/353 C/M/Y   ',' ', 15, 145.0000, 160.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (53, 1, N'tóner', N'BZC 280/360         ',' ', 13, 120.0000, 130.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (54, 1, N'tóner', N'BZC 280/360  C/M/Y  ',' ', 12, 155.0000, 160.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (55, 1, N'tóner', N'BZC 284/364E       N',' ', 14, 145.0000, 160.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (56, 1, N'tóner', N'BZC 284/364E   C/M/Y',' ', 12, 210.0000, 220.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (57, 1, N'tóner', N'BZC 452/552/652   C/',' ', 15, 250.0000, 260.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (58, 1, N'tóner', N'BZC 654/754E    C/M/',' ', 11, 245.0000, 260.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (59, 1, N'chips', N'BHC 250/252   ',' ', 11, 10.0000, 18.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (60, 1, N'chips', N'BHC 220/280/360 ',' ', 11, 15.0000, 20.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (61, 1, N'chips', N'BHC 450  ',' ', 11, 16.0000, 22.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (62, 1, N'chips', N'BHC 452/552/652 ',' ', 11, 15.0000, 20.0000)
+
+-------------
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (63, 2, N'fotocopiadora', N'BH 223 A1UG011107993-260K',' ', 1, 2600.0000, 2800.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (64, 2, N'fotocopiadora', N'BH 223 A1UG011006221-98K',' ', 1, 2600.0000, 2800.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (65, 2, N'fotocopiadora', N'BH 224E A61H011000104-146K',' ', 0, 2600.0000, 2800.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (66, 2, N'fotocopiadora', N'BH 224E A61H011000893-217K',' ', 1, 2600.0000, 2800.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (67, 2, N'fotocopiadora', N'BH 224E A61H011004679-107K',' ', 0, 2600.0000, 2800.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (68, 2, N'fotocopiadora', N'BH 224E A61H011008728-141K',' ', 0, 2600.0000, 2800.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (69, 2, N'fotocopiadora', N'BH 224E A61H011008756-85K',' ', 0, 2600.0000, 2800.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (70, 2, N'fotocopiadora', N'BH 224E A61H011010168-109K',' ', 1, 2600.0000, 2800.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (71, 2, N'fotocopiadora', N'BH 227 A7AK011004958-48K',' ', 0, 2700.0000, 2900.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (72, 2, N'fotocopiadora', N'BH 227 A7AK011003616-30K',' ', 0, 2700.0000, 2900.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (73, 2, N'fotocopiadora', N'BH 227 A7AK011005742-99K',' ', 0, 2700.0000, 2900.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (74, 2, N'fotocopiadora', N'BH 283 A1VF012000176-165K',' ', 2, 2700.0000, 2900.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (75, 2, N'fotocopiadora', N'BH 283 A1UF011106278-83K',' ', 0, 2700.0000, 2900.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (76, 2, N'fotocopiadora', N'BH 284 A61G011007067-97K',' ', 1, 2700.0000, 2900.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (77, 2, N'fotocopiadora', N'BH 284E A61G012002999-83K',' ', 0, 2700.0000, 2900.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (78, 2, N'fotocopiadora', N'BH 284E A61G011006836-112K',' ', 0, 2700.0000, 2900.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (79, 2, N'fotocopiadora', N'BH 284E A61G011009260-101K',' ', 1, 2700.0000, 2900.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (80, 2, N'fotocopiadora', N'BH 361 A0R7011006138-441K',' ', 2, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (81, 2, N'fotocopiadora', N'BH 363 A1UE011111485-289K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (82, 2, N'fotocopiadora', N'BH 363 A1UE011112080-301K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (83, 2, N'fotocopiadora', N'BH 363 A1UE011111480-304K',' ', 0, 2700.0000, 2900.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (84, 2, N'fotocopiadora', N'BH 363 A1UE011112315-268K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (85, 2, N'fotocopiadora', N'BH 363 A1UE011112062-284K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (86, 2, N'fotocopiadora', N'BH 363 A1UE011112381-188K',' ', 0, 3000.0000, 3200.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (87, 2, N'fotocopiadora', N'BH 363 A1UE011112046-201K',' ', 0, 2500.0000, 2700.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (88, 2, N'fotocopiadora', N'BH 363 A1UE011111850-175K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (89, 2, N'fotocopiadora', N'BH 363 A1UE011112308-196K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (90, 2, N'fotocopiadora', N'BH 363 A1UE011116724-208K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (91, 2, N'fotocopiadora', N'BH 363 A1UE011111406-218K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (92, 2, N'fotocopiadora', N'BH 363 A1UE011107948-221K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (93, 2, N'fotocopiadora', N'BH 363 A1UE011112069-252K',' ', 0, 2600.0000, 2800.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (94, 2, N'fotocopiadora', N'BH 364C A61F011001289-355K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (95, 2, N'fotocopiadora', N'BH 423 A1UD011002525-570K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (96, 2, N'fotocopiadora', N'BH 423 A1UD011010540-527K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (97, 2, N'fotocopiadora', N'BH 454E A61E011010540-525K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (98, 2, N'fotocopiadora', N'BH 454E A61E012001048-430K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (99, 2, N'fotocopiadora', N'BH C284E A5C2011108842-254K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (100, 2, N'fotocopiadora', N'BH C284E A5C2011008238-360K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (101, 2, N'fotocopiadora', N'BH C364E A5C1011009312-371K',' ', 0, 2500.0000, 2700.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (102, 2, N'fotocopiadora', N'BH C454 A4FJ011005644-360K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (103, 2, N'fotocopiadora', N'BH C454E A5C0011022611-352K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (104, 2, N'fotocopiadora', N'BH C554 A5AY011003212-507K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (105, 2, N'fotocopiadora', N'BH C554 A5AY011004046-602K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (106, 2, N'fotocopiadora', N'BH C554E A5AY011017420-700K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (107, 2, N'fotocopiadora', N'BH C554E A5AY011001637-430K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (108, 2, N'fotocopiadora', N'BH C554E A5AY011010460-490K',' ', 0, 2500.0000, 2700.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (109, 2, N'fotocopiadora', N'BH C554E A5AY011005064-497K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (110, 2, N'fotocopiadora', N'BH C554E A5AY011001024-631K',' ', 0, 3000.0000, 3200.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (111, 2, N'fotocopiadora', N'BH C554E A5AY011010774-419K',' ', 0, 2800.0000, 3000.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (112, 2, N'fotocopiadora', N'BH C554E A5AY012000314-553K',' ',0, 2600.0000, 2800.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (113, 2, N'fotocopiadora', N'BH C554E A5AY011013400-569K',' ', 0, 2700.0000, 2900.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (114, 2, N'fotocopiadora', N'BH C554E A5AY011004101-882K',' ', 0, 2900.0000, 3100.0000)
+INSERT [dbo].[Producto] ([Id_producto], [Id_categoria], [Nombre_producto], [Numero_serie],[descripcion], [Unidades_en_existencia], [Precio_compra], [Precio_venta]) VALUES (115, 2, N'fotocopiadora', N'BH C554E A5AY011011477-317K',' ', 0, 3000.0000, 3200.0000)
+SET IDENTITY_INSERT [dbo].[Producto] OFF
+
+-----tipo comprobante ---
+
+SET IDENTITY_INSERT [dbo].[Tipo_comprobante] ON 
+
+INSERT [dbo].[Tipo_comprobante] ([Id_tipo_comprobante], [comprobante]) VALUES (1, N'factura')
+INSERT [dbo].[Tipo_comprobante] ([Id_tipo_comprobante], [comprobante]) VALUES (2, N'boleta')
+INSERT [dbo].[Tipo_comprobante] ([Id_tipo_comprobante], [comprobante]) VALUES (3, N'guía R')
+SET IDENTITY_INSERT [dbo].[Tipo_comprobante] OFF
+
+--datos a Detalle_compra
+
+        insert into [dbo].[Detalle_compra]([Id_proveedor],[Id_producto],[Fecha],[Precio_unidad],[Cantidad]) values(1,8,'2019-08-06',55.00,18)
+	insert into [dbo].[Detalle_compra]([Id_proveedor],[Id_producto],[Fecha],[Precio_unidad],[Cantidad]) values(2,12,'2019-08-15',110.00,7)
+	insert into [dbo].[Detalle_compra]([Id_proveedor],[Id_producto],[Fecha],[Precio_unidad],[Cantidad]) values(3,17,'2019-08-01',110.00,8)
+	insert into [dbo].[Detalle_compra]([Id_proveedor],[Id_producto],[Fecha],[Precio_unidad],[Cantidad]) values(4,22,'2019-09-02',200.00,21)
+	insert into [dbo].[Detalle_compra]([Id_proveedor],[Id_producto],[Fecha],[Precio_unidad],[Cantidad]) values(5,28,'2019-08-25',340.00,11)
+	insert into [dbo].[Detalle_compra]([Id_proveedor],[Id_producto],[Fecha],[Precio_unidad],[Cantidad]) values(6,30,'2019-09-01',430.00,9)
+	insert into [dbo].[Detalle_compra]([Id_proveedor],[Id_producto],[Fecha],[Precio_unidad],[Cantidad]) values(7,32,'2019-08-27',355.00,10)
+	insert into [dbo].[Detalle_compra]([Id_proveedor],[Id_producto],[Fecha],[Precio_unidad],[Cantidad]) values(8,36,'2019-08-05',25.00,10)
+	insert into [dbo].[Detalle_compra]([Id_proveedor],[Id_producto],[Fecha],[Precio_unidad],[Cantidad]) values(9,43,'2019-08-05',35.00,13)
+	insert into [dbo].[Detalle_compra]([Id_proveedor],[Id_producto],[Fecha],[Precio_unidad],[Cantidad]) values(10,45,'2019-08-20',45.00,12)
+
+
+
+--datos a cotizacion
+
+SET IDENTITY_INSERT [dbo].[Cotizacion]ON
+	insert into [dbo].[Cotizacion]([Id_cotizacion],[Id_vendedor],[Id_cliente],[Fecha]) values(1,1,1,'2019-09-01')
+	insert into [dbo].[Cotizacion]([Id_cotizacion],[Id_vendedor],[Id_cliente],[Fecha]) values(2,1,2,'2019-09-03')
+	insert into [dbo].[Cotizacion]([Id_cotizacion],[Id_vendedor],[Id_cliente],[Fecha]) values(3,1,3,'2019-09-03')
+	insert into [dbo].[Cotizacion]([Id_cotizacion],[Id_vendedor],[Id_cliente],[Fecha]) values(4,1,4,'2019-09-07')
+	insert into [dbo].[Cotizacion]([Id_cotizacion],[Id_vendedor],[Id_cliente],[Fecha]) values(5,1,5,'2019-09-10')
+	insert into [dbo].[Cotizacion]([Id_cotizacion],[Id_vendedor],[Id_cliente],[Fecha]) values(6,1,6,'2019-09-11')
+	insert into [dbo].[Cotizacion]([Id_cotizacion],[Id_vendedor],[Id_cliente],[Fecha]) values(7,1,7,'2019-09-12')
+	insert into [dbo].[Cotizacion]([Id_cotizacion],[Id_vendedor],[Id_cliente],[Fecha]) values(8,1,8,'2019-09-17')
+	insert into [dbo].[Cotizacion]([Id_cotizacion],[Id_vendedor],[Id_cliente],[Fecha]) values(9,1,9,'2019-09-22')
+	insert into [dbo].[Cotizacion]([Id_cotizacion],[Id_vendedor],[Id_cliente],[Fecha]) values(10,1,10,'2019-09-26')
+SET IDENTITY_INSERT[dbo].[Cotizacion]  OFF
+
+
+--datos a cotizacion_detalle
+insert into [dbo].[Cotizacion_detalle]([Id_cotizacion],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(1,22,210.00,1,10)
+	insert into [dbo].[Cotizacion_detalle]([Id_cotizacion],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(2,28,320.00,1,9)
+	insert into [dbo].[Cotizacion_detalle]([Id_cotizacion],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(3,45,60.00,2,8)
+	insert into [dbo].[Cotizacion_detalle]([Id_cotizacion],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(4,8,60.00,1,7)
+	insert into [dbo].[Cotizacion_detalle]([Id_cotizacion],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(5,12,120.00,1,6)
+	insert into [dbo].[Cotizacion_detalle]([Id_cotizacion],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(6,36,30.00,3,5)
+	insert into [dbo].[Cotizacion_detalle]([Id_cotizacion],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(7,30,480.00,1,4)
+	insert into [dbo].[Cotizacion_detalle]([Id_cotizacion],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(8,17,120.00,1,3)
+	insert into [dbo].[Cotizacion_detalle]([Id_cotizacion],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(9,43,45.00,3,2)
+	insert into [dbo].[Cotizacion_detalle]([Id_cotizacion],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(10,32,360.00,1,1)
+
+--datos a pedido
+
+SET IDENTITY_INSERT [dbo].[Pedido]ON
+insert	[dbo].[Pedido]([Id_pedido],[Id_cotizacion],[Id_tipo_comprobante],[Id_cliente],[Id_vendedor],[Fecha_pedido],[Fecha_envio],[Fecha_entrega]) values(1,1,2,1,1,'2019-09-01','2019-09-02','2019-09-02')
+insert	[dbo].[Pedido]([Id_pedido],[Id_cotizacion],[Id_tipo_comprobante],[Id_cliente],[Id_vendedor],[Fecha_pedido],[Fecha_envio],[Fecha_entrega]) values(2,2,3,2,1,'2019-09-03','2019-09-04','2019-09-05')
+insert	[dbo].[Pedido]([Id_pedido],[Id_cotizacion],[Id_tipo_comprobante],[Id_cliente],[Id_vendedor],[Fecha_pedido],[Fecha_envio],[Fecha_entrega]) values(3,3,2,3,1,'2019-09-04','2019-09-05','2019-09-05')
+insert	[dbo].[Pedido]([Id_pedido],[Id_cotizacion],[Id_tipo_comprobante],[Id_cliente],[Id_vendedor],[Fecha_pedido],[Fecha_envio],[Fecha_entrega]) values(4,4,1,4,1,'2019-09-08','2019-09-09','2019-09-09')
+insert	[dbo].[Pedido]([Id_pedido],[Id_cotizacion],[Id_tipo_comprobante],[Id_cliente],[Id_vendedor],[Fecha_pedido],[Fecha_envio],[Fecha_entrega]) values(5,5,3,5,1,'2019-09-11','2019-09-12','2019-09-13')
+insert	[dbo].[Pedido]([Id_pedido],[Id_cotizacion],[Id_tipo_comprobante],[Id_cliente],[Id_vendedor],[Fecha_pedido],[Fecha_envio],[Fecha_entrega]) values(6,6,2,6,1,'2019-09-11','2019-09-12','2019-09-12')
+insert	[dbo].[Pedido]([Id_pedido],[Id_cotizacion],[Id_tipo_comprobante],[Id_cliente],[Id_vendedor],[Fecha_pedido],[Fecha_envio],[Fecha_entrega]) values(7,7,1,7,1,'2019-09-12','2019-09-13','2019-09-13')
+insert	[dbo].[Pedido]([Id_pedido],[Id_cotizacion],[Id_tipo_comprobante],[Id_cliente],[Id_vendedor],[Fecha_pedido],[Fecha_envio],[Fecha_entrega]) values(8,8,1,8,1,'2019-09-20','2019-09-21','2019-09-21')
+insert	[dbo].[Pedido]([Id_pedido],[Id_cotizacion],[Id_tipo_comprobante],[Id_cliente],[Id_vendedor],[Fecha_pedido],[Fecha_envio],[Fecha_entrega]) values(9,9,3,9,1,'2019-09-22','2019-09-23','2019-09-25')
+insert	[dbo].[Pedido]([Id_pedido],[Id_cotizacion],[Id_tipo_comprobante],[Id_cliente],[Id_vendedor],[Fecha_pedido],[Fecha_envio],[Fecha_entrega]) values(10,10,3,10,1,'2019-09-26','2019-09-27','2019-09-28')
+SET IDENTITY_INSERT[dbo].[Pedido]  OFF
+
+
+--datos a detalle_pedido
+
+        insert into [dbo].[Detalle_de_pedido]([Id_pedido],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(1,22,210.00,1,1)
+	insert into [dbo].[Detalle_de_pedido]([Id_pedido],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(2,28,320.00,1,2)
+	insert into [dbo].[Detalle_de_pedido]([Id_pedido],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(3,45,60.00,2,3)
+	insert into [dbo].[Detalle_de_pedido]([Id_pedido],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(4,8,60.00,1,4)
+	insert into [dbo].[Detalle_de_pedido]([Id_pedido],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(5,12,120.00,1,5)
+	insert into [dbo].[Detalle_de_pedido]([Id_pedido],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(6,36,30.00,3,6)
+	insert into [dbo].[Detalle_de_pedido]([Id_pedido],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(7,30,480.00,1,7)
+	insert into [dbo].[Detalle_de_pedido]([Id_pedido],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(8,17,120.00,1,8)
+	insert into [dbo].[Detalle_de_pedido]([Id_pedido],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(9,43,45.00,3,9)
+	insert into [dbo].[Detalle_de_pedido]([Id_pedido],[Id_producto],[Precio_unidad],[cantidad],[Id_proveedor]) values(10,32,360.00,1,10)
