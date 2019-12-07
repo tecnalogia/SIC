@@ -1,8 +1,8 @@
 ## DED
-Documento de estandar de desarrollo (Ok)
+Documento de estandar de desarrollo (Ok) 
 
 ## DIR
-Documento Directivas de la empresa()
+Documento Directivas de la empresa(No)
 
 ## FAR
 Formato acta de reunion (Ok)
