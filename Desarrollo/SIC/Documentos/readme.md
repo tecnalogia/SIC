@@ -1,35 +1,33 @@
 ## SIC_AC
-Acta de Constitucion
+Acta de Constitucion (Ok)
 
 ## SIC_AN
-Analisis de Negocio
+Analisis de Negocio (Ok)
 
 ## SIC_BD
-Modelo fisico Base de Datos
+Modelo fisico Base de Datos (Ok)
 
 ## SIC_DC
-Diseño de componentes
-
-## SIC_DD
-Documento Despliegue
+Diseño de componentes (Ok)
 
 ## SIC_HU
-Historias de usuario
-
-## SIC_IM
-Documento de implementación
+Historias de usuario (Ok)
 
 ## SIC_IU
-Documento interfaz de usuario
+Documento interfaz de usuario (Ok)
 
 ## SIC_MN
-Documento modelado de negocio
+Documento modelado de negocio (Ok)
 
 ## SIC_PP 
-Documento plan de proyecto
+Documento plan de proyecto (Ok)
 
 ## SIC_RQ
-Documento de requisitos
+Documento de requisitos (Ok)
 
 ## SIC_TDD
-Documento de pruebas
+Documento de pruebas (Ok)
+
+
+## SIC_TDD
+Cronograma del proyecto (Ok)
